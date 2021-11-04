@@ -1,12 +1,15 @@
 require("./db/connection");
 const yargs = require("yargs");
-const { addMovie, listMovies } = require("./movie/movie.methods");
+const { addMovie, listMovies, deleteMovie } = require("./movie/movie.methods");
+const command = process.argv[2];
 
 const app = () => {
-  if (process.argv[2] === "add") {
+  if (command === "add") {
     addMovie({ title: yargs.argv.title, actor: yargs.argv.actor });
-  } else if (process.argv[2] === "list") {
+  } else if (command === "list") {
     listMovies();
+  } else if (command === "delete") {
+    deleteMovie({ filter: yargs.argv.title });
   }
 };
 
