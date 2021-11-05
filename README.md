@@ -4,10 +4,10 @@ Before you can use this app you will need to run "npm i"  on your machine and ad
 ## Commands:
 
 ### Add
-node src/app.js "add" --title="insert movie title here" --actor="insert actor here"
+node src/app.js "add" --title="**insert movie title here**" --actor="**insert actor here**"
 
 ### List
 node src/app.js "list"
 
 ### delete
-node src/app.js "delete" --title"Fast & Furious 2"
+node src/app.js "delete" --title="**insert movie title here**"
