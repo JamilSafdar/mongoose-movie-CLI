@@ -1,6 +1,6 @@
 const Movie = require("./movie.model");
 const mongoose = require("mongoose");
-const { title } = require("process");
+
 
 exports.addMovie = async (movieObj) => {
   try {
@@ -23,11 +23,26 @@ exports.listMovies = async () => {
   }
 };
 
-exports.deleteMovie = async () => {
+exports.deleteMovie = async (deleteObj) => {
   try {
-    await Movie.deleteOne();
+    await Movie.deleteOne({ title: deleteObj.filter });
     mongoose.disconnect();
     console.log("successfully deleted movie");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+exports.updateMovie = async (updateObj) => {
+  try {
+    const update = await Movie.updateOne(
+      { title: updateObj.filter },
+      { $set: { rating: updateObj.rating, genre: updateObj.genre } },
+
+    );
+    console.log(update);
+    mongoose.disconnect();
+    console.log("successfully updated movie");
   } catch (error) {
     console.log(error);
   }
