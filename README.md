@@ -1,4 +1,4 @@
-﻿# mongoose-movie-CLI
+﻿# Mongoose Movies CLI
 
 Before you can use this app you will need to run "npm i"  on your machine and add a .env file with your own connection string from Mongo DB.
 ## Commands:
